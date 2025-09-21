@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
@@ -6,6 +7,26 @@ import Slider from "react-slick";
 
 
 export default function Home() {
+  const [isNavOpen, setIsNavOpen] = useState(false); // State for mobile nav
+  const [isScrolled, setScrolled] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isPastThreshold = window.scrollY > 50; 
+      setScrolled(isPastThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const galleryImages = [
     { src: "https://cdn.onefc.com/wp-content/uploads/2017/01/Muay-Thai-AO1U0173.jpg", alt: "Muay Thai training in action" },
@@ -32,7 +53,7 @@ export default function Home() {
 
   return (
     <div>
-      <header className="header">
+      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <div className="logo-container">
             <a href="/">
@@ -44,13 +65,22 @@ export default function Home() {
               />
             </a>
           </div>
-          <nav className="nav">
-            <a href="#about">About</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
+
+          {/* Navigation Links with conditional class */}
+          <nav className={`nav ${isNavOpen ? 'nav-open' : ''}`}>
+            <a href="#about" onClick={() => setIsNavOpen(false)}>About</a>
+            <a href="#achievements" onClick={() => setIsNavOpen(false)}>Achievements</a>
+            <a href="#services" onClick={() => setIsNavOpen(false)}>Services</a>
+            <a href="#gallery" onClick={() => setIsNavOpen(false)}>Gallery</a>
+            <a href="#contact" onClick={() => setIsNavOpen(false)}>Contact</a>
           </nav>
+
+          {/* Hamburger Menu Icon */}
+          <button className="hamburger" onClick={toggleNav}>
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
         </div>
       </header>
 
