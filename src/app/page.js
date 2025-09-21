@@ -5,6 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
 import Slider from "react-slick";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+
+
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false); // State for mobile nav
@@ -76,11 +81,15 @@ export default function Home() {
           </nav>
 
           {/* Hamburger Menu Icon */}
-          <button className="hamburger" onClick={toggleNav}>
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </button>
+          <button
+  className={`hamburger ${isNavOpen ? 'open' : ''}`}
+  onClick={toggleNav}
+  aria-label="Toggle navigation"
+>
+  <span className="bar"></span>
+  <span className="bar"></span>
+  <span className="bar"></span>
+</button>
         </div>
       </header>
 
@@ -185,10 +194,6 @@ export default function Home() {
         <section id="contact" className="section contact-section">
           <h2 className="section-title">Contact</h2>
           <div className="container">
-             <p>
-    <strong>My Mission:</strong><br/>
-    To grow Muay Thai across India by developing athletes, empowering youth, and creating champions inside and outside the ring. I believe Muay Thai is more than just a sport—it’s a way of life that teaches respect, resilience, and relentless self-improvement.
-  </p>
             Ready to start your journey? Get in touch today!
             <br />
             Email: trainwith.trainer@example.com
@@ -198,11 +203,21 @@ export default function Home() {
               <a href="#"><i className="fab fa-instagram"></i></a>
               <a href="#"><i className="fab fa-youtube"></i></a>
             </div>
+
+            <div className="social-links">
+  <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+    <FontAwesomeIcon icon={faInstagram} size="2x" />
+  </a>
+  <a href="https://www.youtube.com/channel/yourchannel" target="_blank" rel="noopener noreferrer">
+    <FontAwesomeIcon icon={faYoutube} size="2x" />
+  </a>
+</div>
           </div>
         </section>
       </main>
 
       <footer className="footer">
+
         <div className="container">
           <p>© 2025 Muay Thai Training. All rights reserved.</p>
         </div>

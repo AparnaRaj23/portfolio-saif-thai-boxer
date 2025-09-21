@@ -16,26 +16,37 @@ body {
   line-height: 1.6;
 }
 
+main {
+  width: 100%;
+}
+
 .red-text {
   color: #D11313;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 70%;
   margin: auto;
   padding: 0 5vw;
 }
 
 .header {
+  width: 100%;
+  /* text-align: center; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0.5rem;
-  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); */
+ 
+  position: fixed;
+  background-color: transparent;
+  background: transparent;          
+  box-shadow: none; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header .container {
@@ -50,9 +61,14 @@ body {
   color: #AB2C2C;
 }
 
-.header.scrolled {
+/* .header.scrolled {
   background-color: #171212;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+} */
+
+.header.scrolled {
+  background: rgba(23, 18, 18, 0.95); /* dark background when scrolled */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .logo-container {
@@ -87,6 +103,7 @@ body {
 .hero-section {
   position: relative;
   height: 90vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,6 +158,7 @@ body {
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 /*
@@ -153,15 +171,16 @@ body {
 */
 
 .trainer-photo img {
-  width: 100%;
+  height: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 }
 
 .trainer-section {
   display: flex;
   /* width: 100%; */
-  height: 500px;
+  height: 100%;
 }
 
 .trainer-photo {
@@ -200,6 +219,7 @@ body {
 
 .about-text {
   flex: 2;
+  max-width: 80%;
   
 }
 
@@ -325,11 +345,21 @@ body {
   position: relative;
 }
 
----
+
 /* Mobile Navigation & Hamburger Menu */
+
+.hamburger .bar {
+  display: flex;
+  width: 25px;
+  height: 3px;
+  background-color: #F8F8F8;
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .hamburger {
-  display: none; /* Hide on desktop */
-  background: none;
+  display: none;
+  background: none; 
   border: none;
   cursor: pointer;
   padding: 10px;
@@ -337,21 +367,19 @@ body {
   z-index: 1100;
 }
 
-.hamburger .bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #F8F8F8; /* Use light-color for visibility against dark header */
-  margin: 5px 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.trainer-photo, .about-text {
+  flex: 1 1 300px; /* flex-grow:1, flex-shrink:1, min-width:300px */
 }
 
 /* 📱 Mobile Styles */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* Show hamburger on mobile */
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20px;
+    right: 20px;
   }
-
   .nav {
     display: flex;
     flex-direction: column;
@@ -364,11 +392,10 @@ body {
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    transform: translateX(100%); /* Hide nav off-screen */
+    transform: translateX(100%); 
     transition: transform 0.3s ease-in-out;
   }
   
-  /* When the nav is open, slide it into view */
   .nav.nav-open {
     transform: translateX(0);
   }
@@ -376,5 +403,21 @@ body {
   .nav a {
     font-size: 1.5rem;
     margin: 1rem 0;
+  }
+}
+
+@media (max-width: 1000px) {
+    .trainer-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .trainer-details {
+    height: 80%;
+    width: auto;
+  }
+  .trainer-photo {
+    width: 60%;
+    height: auto;
   }
 }
