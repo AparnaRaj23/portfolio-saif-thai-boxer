@@ -109,6 +109,7 @@ main {
   background-image: url("/images/background-pic.png");
   background-size: cover;
   background-position: center;
+  /* Fixed for desktop */
   background-attachment: fixed;
   background-repeat: no-repeat;
   filter: brightness(0.5);
@@ -287,6 +288,7 @@ main {
 .achievements-section {
   background-image: url('/images/achievement-photo.jpeg');
   background-size: cover;
+  /* Fixed for desktop */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -352,7 +354,7 @@ main {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* === MOBILE STYLES === */
+/* === MOBILE STYLES (Max Width 768px) === */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -389,19 +391,26 @@ main {
     color: #fff;
   }
   
-  /* Workaround for Achievements section on mobile */
+  .hero-section::before {
+      background-attachment: scroll; 
+  }
+  
   .achievements-section {
-      padding: 15% 5%; /* More vertical padding for mobile */
-      background-attachment: scroll; /* Often necessary to explicitly disable fixed for mobile compatibility */
+      padding: 15% 5%; 
+      background-attachment: scroll; 
       background-position: center center;
   }
   
   .hero-content h1 {
-    font-size: 2.5rem; /* Adjust hero text size */
+    font-size: 2.5rem; 
+  }
+
+  .hero-content p {
+    font-size: 1rem;
   }
 
   .container {
-    max-width: 100%; /* Make container use full width */
+    max-width: 100%; 
     padding: 0 5vw;
   }
 }
