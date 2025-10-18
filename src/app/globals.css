@@ -106,7 +106,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/background-pic.jpeg");
+  background-image: url("/images/background-pic.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -320,6 +320,10 @@ main {
   gap: 40px;
   position: relative;
   z-index: 2;
+}
+
+.achievement-item::before {
+  content: "• ";
 }
 
 .achievement-item {

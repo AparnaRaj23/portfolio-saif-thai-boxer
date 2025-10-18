@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Slider from "react-slick";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faYoutube, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false); // State for mobile nav
@@ -46,7 +46,7 @@ export default function Home() {
           <div className="logo-container">
             <a href="/">
               <Image
-                src="/images/logo.jpeg"
+                src="/images/logo.png"
                 alt="Muay Thai Training Logo"
                 width={80}
                 height={80}
@@ -123,12 +123,12 @@ export default function Home() {
         <section id="achievements" className="achievements-section">
           <h2 className="achievements-title">Achievements</h2>
           <div className="achievements-content">
-            <h2 className="achievement-item">🏆 5-time Muay Thai National Champion (2015–2019)</h2>
-            <h2 className="achievement-item">🎓 Khan 11 Red Mongkhon (Master’s Degree in Muay Thai)</h2>
-            <h2 className="achievement-item">🌍 Internationally certified Muay Thai trainer</h2>
-            <h2 className="achievement-item">💪 Head Coach at Iconic Fitness Club</h2>
-            <h2 className="achievement-item">⭐ Over 230 5-star reviews on Google</h2>
-            <h2 className="achievement-item">🥇 Trained hundreds of students and fighters</h2>
+            <h2 className="achievement-item">5-time Muay Thai National Champion (2015–2019)</h2>
+            <h2 className="achievement-item">Khan 11 Red Mongkhon (Master’s Degree in Muay Thai)</h2>
+            <h2 className="achievement-item">Internationally certified Muay Thai trainer</h2>
+            <h2 className="achievement-item">Head Coach at Iconic Fitness Club</h2>
+            <h2 className="achievement-item">250+ 5-star reviews on Google</h2>
+            <h2 className="achievement-item">Trained hundreds of students and fighters</h2>
           </div>
         </section>
 
@@ -148,9 +148,9 @@ export default function Home() {
                 and accelerate your progress.
               </div>
               <div className="service-card">
-                <h3>Sparring Sessions</h3>
-                Safe and controlled sparring to apply your techniques in a
-                realistic setting.
+                <h3>HIIT & Strength Training</h3>
+                Full-body workouts combining strength 
+                and endurance training for all age groups. Build power, agility, and overall fitness.
               </div>
             </div>
           </div>
@@ -181,12 +181,15 @@ export default function Home() {
                 <a href="https://www.youtube.com/@saifthaiboxer" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} size="2x" />
                 </a>
+                <a href="https://www.facebook.com/share/1BLofmvWLw/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faFacebook} size="2x" />
+                </a>
             </div>
-            Ready to start your journey? Get in touch today!
+            <i> Ready to start your journey? Get in touch today! </i>
             <br />
-            Email: trainwith.trainer@example.com
+            Email: shaikshafathali@gmail.com
             <br />
-            Phone: (123) 456-7890
+            Phone: +91-7799682908
             <br />
           </div>
         </section>
@@ -194,7 +197,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="container">
-          <p>© 2025 Muay Thai Training. All rights reserved.</p>
+          <p>© 2025 Train With Coach Saif. All rights reserved.</p>
         </div>
       </footer>
     </div>
