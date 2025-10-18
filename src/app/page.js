@@ -14,24 +14,26 @@ export default function Home() {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
   const galleryImages = [
-    { src: "https://cdn.onefc.com/wp-content/uploads/2017/01/Muay-Thai-AO1U0173.jpg", alt: "Muay Thai training in action" },
-    { src: "https://cdn.onefc.com/wp-content/uploads/2017/01/Muay-Thai-AO1U0173.jpg", alt: "Student practicing a kick" },
-    { src: "https://cdn.onefc.com/wp-content/uploads/2017/01/Muay-Thai-AO1U0173.jpg", alt: "Group class photo" },
-    { src: "https://cdn.onefc.com/wp-content/uploads/2017/01/Muay-Thai-AO1U0173.jpg", alt: "Trainer with student" },
+    { src: "/images/gallery-pic1.jpeg", alt: "Class photo" },
+    { src: "/images/gallery-pic2.jpeg", alt: "Group class" },
+    { src: "/images/gallery-pic3.jpeg", alt: "Group class photo with kids" },
+    { src: "/images/gallery-pic4.jpeg", alt: "Class Photo 2" },
   ];
 
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,      // two images visible on desktop
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    arrows: true,
     responsive: [
       {
-        breakpoint: 768,   // mobile
+        breakpoint: 768,
         settings: { slidesToShow: 1 }
       }
     ]
@@ -39,8 +41,8 @@ export default function Home() {
 
   return (
     <div>
-      <header className={"header"}>
-        <div className="container">
+      <header className="header">
+        <div className="nav-container">
           <div className="logo-container">
             <a href="/">
               <Image
@@ -52,7 +54,7 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Navigation Links with conditional class */}
+          {/* Navigation Links */}
           <nav className={`nav ${isNavOpen ? 'nav-open' : ''}`}>
             <a href="#about" onClick={() => setIsNavOpen(false)}>About</a>
             <a href="#achievements" onClick={() => setIsNavOpen(false)}>Achievements</a>
@@ -61,7 +63,7 @@ export default function Home() {
             <a href="#contact" onClick={() => setIsNavOpen(false)}>Contact</a>
           </nav>
 
-          {/* Hamburger Menu Icon */}
+          {/* Hamburger Menu */}
           <button
             className={`hamburger ${isNavOpen ? 'open' : ''}`}
             onClick={toggleNav}
@@ -112,23 +114,23 @@ export default function Home() {
                 <p>
                   My work and teaching have earned me the trust and respect of the community. On Google, my gym—Coach Saif Thai Boxer—holds a 5-star rating with over 230 reviews, a true reflection of the quality, dedication, and results I deliver to every student.
                 </p>
-            </div>
-
+              </div>
             </div>
           </div>
         </section>
 
-              <section id="achievements" className="achievements-section">
-                <h2 className="achievements-title">Achievements</h2>
-                <div className="achievements-content">
-                  <h2 className="achievement-item">🏆 5-time Muay Thai National Champion (2015–2019)</h2>
-                  <h2 className="achievement-item">🎓 Khan 11 Red Mongkhon (Master’s Degree in Muay Thai)</h2>
-                  <h2 className="achievement-item">🌍 Internationally certified Muay Thai trainer</h2>
-                  <h2 className="achievement-item">💪 Head Coach at Iconic Fitness Club</h2>
-                  <h2 className="achievement-item">⭐ Over 230 5-star reviews on Google</h2>
-                  <h2 className="achievement-item">🥇 Trained hundreds of students and fighters</h2>
-                </div>
-            </section>
+        {/* Achievements Section */}
+        <section id="achievements" className="achievements-section">
+          <h2 className="achievements-title">Achievements</h2>
+          <div className="achievements-content">
+            <h2 className="achievement-item">🏆 5-time Muay Thai National Champion (2015–2019)</h2>
+            <h2 className="achievement-item">🎓 Khan 11 Red Mongkhon (Master’s Degree in Muay Thai)</h2>
+            <h2 className="achievement-item">🌍 Internationally certified Muay Thai trainer</h2>
+            <h2 className="achievement-item">💪 Head Coach at Iconic Fitness Club</h2>
+            <h2 className="achievement-item">⭐ Over 230 5-star reviews on Google</h2>
+            <h2 className="achievement-item">🥇 Trained hundreds of students and fighters</h2>
+          </div>
+        </section>
 
         {/* Services Section */}
         <section id="services" className="section">
@@ -191,7 +193,6 @@ export default function Home() {
       </main>
 
       <footer className="footer">
-
         <div className="container">
           <p>© 2025 Muay Thai Training. All rights reserved.</p>
         </div>

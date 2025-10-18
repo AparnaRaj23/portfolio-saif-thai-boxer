@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #171212; /* A vibrant purple for primary elements */
-  --secondary-color: #8C8C8C; /* Muted gray for secondary text and borders */
-  --dark-color: #171212; /* Darker gray for main text */
-  --light-color: #F8F8F8; /* A very light gray for backgrounds */
+  --primary-color: #171212;
+  --secondary-color: #8C8C8C;
+  --dark-color: #171212;
+  --light-color: #F8F8F8;
   --header-font: 'Poppins', sans-serif;
   --body-font: 'Roboto', sans-serif;
 }
@@ -32,66 +32,60 @@ main {
 
 .header {
   width: 100%;
-  /* text-align: center; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  height: 6%;
   position: fixed;
-  background-color: rgba(23, 18, 18, 0.95);;
-  background: rgba(23, 18, 18, 0.95);;          
-  box-shadow: none; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(23, 18, 18, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.header .container {
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.5rem; 
-  width: 100%; 
-}
-
-.header nav a {
-  color: #AB2C2C;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .logo-container {
-  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  height: auto;
 }
 
 .logo-container img {
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-
-.logo {
-  font-family: var(--header-font);
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  transition: color 0.3s ease 
-}
-
-.logo:hover {
-  color: var(--secondary-color);
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
 }
 
 .nav a {
-  margin-left: 1rem;
-  color: var(--dark-color);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #AB2C2C;
+  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
 .nav a:hover {
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .hero-section {
@@ -112,8 +106,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Here's the updated background image URL */
-  background-image: url("/images/first-image.jpeg");
+  background-image: url("/images/background-pic.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -149,66 +142,64 @@ main {
 
 .about-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.trainer-photo img {
-  height: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-  border: 2px solid red;
-}
-
-.trainer-section {
-  display: flex;
-  /* width: 100%; */
-  height: 100%;
 }
 
 .trainer-photo {
-  position: relative;   /* required for Image fill */
-  /* width: 50%; */
-  height: 100%;
-}
-
-.trainer-details {
-  width: 50%;
-  padding: 2rem;
+  flex: 1 1 350px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
-/* 📱 Mobile view: stack items vertically */
-@media (max-width: 768px) {
-  .trainer-section {
-    flex-direction: column;  /* stack instead of side by side */
-    height: auto;           /* allow natural height */
+.trainer-photo img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid red;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 2 1 400px;
+  max-width: 600px;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .trainer-photo {
-    width: 100%;            /* full width on mobile */
-    height: 300px;          /* fixed height for image */
+    width: 80%;
   }
 
-  .trainer-details {
-    width: 100%;
-    padding: 1rem;
-    text-align: center;     /* optional: center align text */
+  .about-text {
+    width: 90%;
+    text-align: justify;
   }
 }
 
+@media (max-width: 500px) {
+  .trainer-photo img {
+    max-width: 90%;
+  }
 
-.about-text {
-  flex: 2;
-  max-width: 80%;
-  
+  .about-text {
+    font-size: 0.95rem;
+  }
 }
 
+/* === SERVICES SECTION === */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -220,13 +211,9 @@ main {
   background: white;
   padding: 1rem;
   border-radius: 8px;
+  border: 2px solid red;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid red;
-}
-
-.service-card h3 {
-  color: var(--primary-color);
 }
 
 .service-card:hover {
@@ -235,16 +222,25 @@ main {
   background-color: var(--light-color);
 }
 
+/* === GALLERY SECTION === */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Ensures square tiles */
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
 .gallery-item img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: 80%;
+  object-fit: cover; /* Keeps natural proportions but crops overflow */
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
@@ -253,6 +249,7 @@ main {
   transform: scale(1.05);
 }
 
+/* === CONTACT SECTION === */
 .contact-section {
   text-align: center;
 }
@@ -273,6 +270,7 @@ main {
   color: var(--primary-color);
 }
 
+/* === FOOTER === */
 .footer {
   text-align: center;
   padding: 1.5rem 0;
@@ -285,29 +283,24 @@ main {
   text-decoration: none;
 }
 
+/* === ACHIEVEMENTS SECTION === */
 .achievements-section {
   background-image: url('/images/achievement-photo.jpeg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-attachment: scroll; is default */
   padding: 10% 20%;
-  /* margin: 5% 5%; */
   color: white;
   position: relative;
   text-align: center;
 }
 
-
 .achievements-section::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -326,68 +319,58 @@ main {
   justify-content: center;
   gap: 40px;
   position: relative;
-  z-index: 2; /* content above overlay */
+  z-index: 2;
 }
 
 .achievement-item {
   color: #D5D6D7;
-  margin-bottom: 12px;
   font-size: 1.2rem;
   z-index: 3;
   position: relative;
 }
 
-
-/* Mobile Navigation & Hamburger Menu */
-
-.hamburger .bar {
-  display: flex;
-  width: 25px;
-  height: 3px;
-  background-color: #F8F8F8;
-  margin: 5px 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
+/* === HAMBURGER MENU === */
 .hamburger {
   display: none;
-  background: none; 
+  background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  flex-direction: column;
+  gap: 5px;
   position: relative;
   z-index: 1100;
 }
 
-.trainer-photo, .about-text {
-  flex: 1 1 300px; /* flex-grow:1, flex-shrink:1, min-width:300px */
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #F8F8F8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 📱 Mobile Styles */
+/* === MOBILE STYLES === */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
   }
+
   .nav {
-    display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #171212;
-    z-index: 1000;
     justify-content: center;
     align-items: center;
-    transform: translateX(100%); 
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #171212;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
-  
+
   .nav.nav-open {
     transform: translateX(0);
   }
@@ -395,21 +378,100 @@ main {
   .nav a {
     font-size: 1.5rem;
     margin: 1rem 0;
+    color: #AB2C2C;
+  }
+
+  .nav a:hover {
+    color: #fff;
   }
 }
 
-@media (max-width: 1000px) {
-    .trainer-section {
-    flex-direction: column;
-    height: auto;
+
+/* === GALLERY CAROUSEL FIXES === */
+
+/* Keep all gallery slides at a uniform height */
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Center the dots closer to the image */
+.slick-dots {
+  bottom: 15px !important; /* moves dots up under the image */
+}
+
+/* Style the dots to match your theme */
+.slick-dots li button:before {
+  color: #fff;
+  opacity: 0.6;
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #D11313;
+  opacity: 1;
+}
+
+/* === Navigation Arrows === */
+.slick-prev,
+.slick-next {
+  width: 45px;
+  height: 45px;
+  z-index: 5;
+  color: #ff0000;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px;
+  color: #D11313 !important;
+  opacity: 0.9;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1;
+  color: #fff;
+}
+
+/* Keep arrows aligned vertically with the image */
+.slick-prev {
+  left: 25px;
+}
+.slick-next {
+  right: 25px;
+}
+
+.slick-arrow {
+  color: #D11313;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .slick-prev,
+  .slick-next {
+    width: 35px;
+    height: 35px;
   }
 
-  .trainer-details {
-    height: 80%;
-    width: auto;
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 25px;
   }
-  .trainer-photo {
-    width: 60%;
-    height: auto;
+
+  .slick-dots {
+    bottom: 10px !important;
   }
 }
+
