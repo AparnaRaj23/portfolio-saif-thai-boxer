@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
 import Slider from "react-slick";
+import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faYoutube, faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -44,23 +45,23 @@ export default function Home() {
       <header className="header">
         <div className="nav-container">
           <div className="logo-container">
-            <a href="/">
+            <Link href="/">
               <Image
                 src="/images/logo.png"
                 alt="Muay Thai Training Logo"
                 width={80}
                 height={80}
               />
-            </a>
+            </Link>
           </div>
 
           {/* Navigation Links */}
           <nav className={`nav ${isNavOpen ? 'nav-open' : ''}`}>
-            <a href="#about" onClick={() => setIsNavOpen(false)}>About</a>
-            <a href="#achievements" onClick={() => setIsNavOpen(false)}>Achievements</a>
-            <a href="#services" onClick={() => setIsNavOpen(false)}>Services</a>
-            <a href="#gallery" onClick={() => setIsNavOpen(false)}>Gallery</a>
-            <a href="#contact" onClick={() => setIsNavOpen(false)}>Contact</a>
+            <Link href="#about" onClick={() => setIsNavOpen(false)}>About</Link>
+            <Link href="#achievements" onClick={() => setIsNavOpen(false)}>Achievements</Link>
+            <Link href="#services" onClick={() => setIsNavOpen(false)}>Services</Link>
+            <Link href="#gallery" onClick={() => setIsNavOpen(false)}>Gallery</Link>
+            <Link href="#contact" onClick={() => setIsNavOpen(false)}>Contact</Link>
           </nav>
 
           {/* Hamburger Menu */}
@@ -175,15 +176,15 @@ export default function Home() {
           <h2 className="section-title">Contact</h2>
           <div className="container">
             <div className="social-links">
-                <a href="https://www.instagram.com/coach_saifthaiboxer/" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.instagram.com/coach_saifthaiboxer/" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
-                </a>
-                <a href="https://www.youtube.com/@saifthaiboxer" target="_blank" rel="noopener noreferrer">
+                </Link>
+                <Link href="https://www.youtube.com/@saifthaiboxer" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} size="2x" />
-                </a>
-                <a href="https://www.facebook.com/share/1BLofmvWLw/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                </Link>
+                <Link href="https://www.facebook.com/share/1BLofmvWLw/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
-                </a>
+                </Link>
             </div>
             <i> Ready to start your journey? Get in touch today! </i>
             <br />
