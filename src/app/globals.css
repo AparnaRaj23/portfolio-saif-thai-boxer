@@ -388,6 +388,22 @@ main {
   .nav a:hover {
     color: #fff;
   }
+  
+  /* Workaround for Achievements section on mobile */
+  .achievements-section {
+      padding: 15% 5%; /* More vertical padding for mobile */
+      background-attachment: scroll; /* Often necessary to explicitly disable fixed for mobile compatibility */
+      background-position: center center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem; /* Adjust hero text size */
+  }
+
+  .container {
+    max-width: 100%; /* Make container use full width */
+    padding: 0 5vw;
+  }
 }
 
 
@@ -478,4 +494,3 @@ main {
     bottom: 10px !important;
   }
 }
-
