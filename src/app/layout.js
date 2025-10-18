@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Portfolio: Saif Thai Boxer',
-  description: 'Official portfolio website for a Muay Thai Trainer',
+  title: 'Train with Coach Saif',
+  description: 'Official website of Saif Thai Boxer, an internationally certified Muay Thai Coach.',
 };
 
 export default function RootLayout({ children }){
